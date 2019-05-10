@@ -2,6 +2,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 app.use(bodyParser.json())
+//const bcrypt = require('bcrypt-nodejs')
+//const hash = bcrypt.hashSync();
 
 /* routes in backend
     /signin POST
@@ -28,7 +30,14 @@ const database = {
             entries: 0,
             joined: new Date()
         }
-    ]
+    ],
+    /* login: [
+        {
+            id: 123,
+            has: '',
+            email: 'jenny@test.com'
+        }
+    ] */
 }
 
 app.get('/users', (req, res) => {
@@ -49,8 +58,13 @@ app.get('/users/:id', (req, res) => {
 })
 
 app.post('/signin', (req, res) => {
-    console.log(database.users[0].email)
-    console.log(req.body)
+    // Load hash from your password DB.
+    /* bcrypt.compare("test", '$2a$10$h38iWCo68aI3clY0ZLhcpOqcMbggdVQTHrhJJYZvY2S6L7Thd6JYO', function(err, res) {
+       console.log('first guess', res)
+    });
+    bcrypt.compare("veggies", '$2a$10$h38iWCo68aI3clY0ZLhcpOqcMbggdVQTHrhJJYZvY2S6L7Thd6JYO', function(err, res) {
+        console.log('second guess', res)
+    }); */
     if(req.body.email === database.users[0].email &&
         req.body.password === database.users[0].password) {
             res.json('success')
@@ -61,6 +75,11 @@ app.post('/signin', (req, res) => {
 
 app.post('/signup', (req, res) => {
     const { email, name, password } = req.body
+    /* bcrypt.hash(password, null, null, function(err, hash) {
+        // Store hash in your password DB.
+        console.log(hash)
+    }); */
+
     database.users.push({
         id:'789',
         name: name,
@@ -85,6 +104,8 @@ app.post('/image', (req, res) => {
     if(!found)
         return res.status(404).json("user not found")
 })
+
+
 
 
 
