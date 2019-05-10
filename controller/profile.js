@@ -15,5 +15,5 @@ const handleUserProfile = (req, res, db) => {
 }
 
 module.exports = {
-    handleUserProfile: handleUserProfile
+    handleUserProfile
 }

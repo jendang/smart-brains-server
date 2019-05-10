@@ -8,6 +8,7 @@ const register = require('./controller/register')
 const signin = require('./controller/signin')
 const profile = require('./controller/profile')
 const entries = require('./controller/entries')
+const imageApi = require('./controller/entries')
 
 const app = express()
 
@@ -39,6 +40,10 @@ app.post('/signup', (req, res) => {
 
 app.put('/image', (req, res) => {
     entries.handleEntriesCount(req, res, db)
+})
+
+app.post('/imageurl', (req, res) => {
+    imageApi.handleApiCall(req, res)
 })
 
 app.listen(4000, () => console.log('App is running on port 4000'))
