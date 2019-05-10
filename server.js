@@ -1,9 +1,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const app = express()
-app.use(bodyParser.json())
 //const bcrypt = require('bcrypt-nodejs')
 //const hash = bcrypt.hashSync();
+const cors = require('cors')
+
+const app = express()
+
+app.use(bodyParser.json())  // always at the beginning
+app.use(cors()) // to connect w fe
 
 /* routes in backend
     /signin POST
@@ -15,15 +19,15 @@ app.use(bodyParser.json())
 const database = {
     users: [
         {
-            id: 123,
+            id: "123",
             name: 'jenny',
-            email: 'jenny',
+            email: 'jenny@test.com',
             password: "test",
             entries: 0,
             joined: new Date()
         },
         {
-            id: 456,
+            id: "456",
             name: 'hope',
             email: 'hope@test.com',
             password: "test",
@@ -40,12 +44,13 @@ const database = {
     ] */
 }
 
-app.get('/users', (req, res) => {
+app.get('/', (req, res) => {
     res.json(database.users)
 })
 
 app.get('/users/:id', (req, res) => {
-    const  id  = Number(req.params.id) // in case id is integer
+    //const  id  = Number(req.params.id) // in case id is integer
+    const  {id}  = req.params
     let found = false
     database.users.forEach(user => {
         if(user.id === id ){
@@ -67,7 +72,7 @@ app.post('/signin', (req, res) => {
     }); */
     if(req.body.email === database.users[0].email &&
         req.body.password === database.users[0].password) {
-            res.json('success')
+            res.json(database.users[0])
     } else {
         res.status(400).json("error logging in")
     }
@@ -84,14 +89,14 @@ app.post('/signup', (req, res) => {
         id:'789',
         name: name,
         email: email,
-        password: password,
+        // password: password,
         entries: 0,
         joined: new Date()
     })
     res.json(database.users[database.users.length - 1])
 })
 
-app.post('/image', (req, res) => {
+app.put('/image', (req, res) => {
     const {id}  = req.body
     let found = false
     database.users.forEach(user => {
@@ -105,8 +110,4 @@ app.post('/image', (req, res) => {
         return res.status(404).json("user not found")
 })
 
-
-
-
-
-app.listen(3000, () => console.log('App is running on port 3000'))
+app.listen(4000, () => console.log('App is running on port 4000'))
