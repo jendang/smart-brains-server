@@ -1,5 +1,3 @@
-[![Heroku CI Status](https://{deployed app name}.herokuapp.com/last.svg)](https://dashboard.heroku.com/pipelines/{pipeline ID}/tests)
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/19e5d51f-fedb-49c6-9734-dae08fb1414f/deploy-status)](https://app.netlify.com/sites/smart-brains/deploys)
 
 # :sunglasses: smart-brains-server :sunglasses: 
@@ -27,13 +25,13 @@ The project allow you to detect a face when you insert an image from an url inpu
 ### Front-end
 
 * [React](https://github.com/jendang/smart-brains-client/blob/master/create-react-app-docs)
+* [Front-end git REPO](https://github.com/jendang/smart-brains-client)
 
 ### Back-end
 
 * [postgresql](https://www.postgresql.org/)
 * [express](https://expressjs.com/)
 * [heroku for deploy](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-* [Backend git REPO](https://github.com/jendang/smart-brains-server)
 
 ## Goals for this project
 
@@ -48,10 +46,8 @@ The project allow you to detect a face when you insert an image from an url inpu
 
 ## Features can add with pull requests
 
-* User profile page: edit, adding avatar
-* OAuth with Facebook, Google, ...
-* Detect faces in an image
-* Implementing Redux 
+* Storing images input 
+* Storing user's profile picture
 
 ## My git workflow
 
@@ -62,17 +58,16 @@ The project allow you to detect a face when you insert an image from an url inpu
 
 I created a project to manage my workflow inside the git repository. I divided my tasks into three sessions:
 * todos: list all steps/activities that you need to do for the project
-* in process: I move the todos here when I am working on that
+* in progress: I move the todos here when I am working on that
 * done: I move the tasks here when I finished it
 
-[Checkout my project's planning here](https://github.com/jendang/smart-brains-client/projects/1)
+[Checkout my project's planning here](https://github.com/jendang/smart-brains-server/projects/1)
 
 ## APIs/Packages references
 
 * [Clarifai API for face-detection](https://www.clarifai.com/models/face-detection-image-recognition-model-a403429f2ddf4b49b307e318f00e528b-detection)
-* [Tachyons for CSS](https://tachyons.io/)
-* [react-particles for website background](https://www.npmjs.com/package/react-particles-js)
-* [react-tilt for creating a logo](https://www.npmjs.com/package/react-tilt)
+* [knex js](https://knexjs.org/)
+
 
 
 
