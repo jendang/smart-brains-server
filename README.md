@@ -68,6 +68,7 @@ I created a project to manage my workflow inside the git repository. I divided m
 * [Clarifai API for face-detection](https://www.clarifai.com/models/face-detection-image-recognition-model-a403429f2ddf4b49b307e318f00e528b-detection)
 * [knex js](https://knexjs.org/)
 
+For more information about this project, please feel free to [contact me](https://www.linkedin.com/in/jennydang/)
 
 
 
